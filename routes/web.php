@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
@@ -37,7 +38,9 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/a-propos', [AboutController::class, 'index'])->name('about.index');
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/conditions-vente', [TermsController::class, 'index'])->name('terms.index');
+Route::get('/garantie', [TermsController::class, 'warranty'])->name('warranty.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -8,169 +8,150 @@ class TermsController extends Controller
 {
     /**
      * Affiche la page Conditions de Vente de LEBOSS TECH MARKET
+     * Approche "Gagnant-Gagnant" / B2B
      */
     public function index()
     {
-        // Sections principales des conditions de vente
+        // Sections principales des conditions de partenariat
         $sections = [
             [
                 'id' => 'article-1',
-                'title' => 'Article 1 - Objet et Champ d\'Application',
-                'icon' => 'fas fa-file-contract',
+                'title' => 'Article 1 - Notre Engagement Commun',
+                'icon' => 'fas fa-handshake',
                 'content' => [
-                    'Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre LEBOSS TECH MARKET, société spécialisée dans la vente d\'équipements informatiques reconditionnés, et ses clients.',
-                    'Toute commande implique l\'acceptation pleine et entière des présentes conditions.',
-                    'LEBOSS TECH MARKET se réserve le droit de modifier ces conditions à tout moment, les conditions applicables étant celles en vigueur à la date de la commande.'
+                    'Chez LEBOSS TECH, nous croyons qu\'une relation commerciale durable repose sur la confiance et des intérêts partagés. Ces conditions définissent le cadre de notre partenariat gagnant-gagnant.',
+                    'Notre objectif est de vous accompagner dans la réussite de vos projets technologiques en vous fournissant du matériel fiable et un service réactif.',
+                    'Toute commande implique l\'adhésion à cet esprit de collaboration mutuelle, bien au-delà d\'une simple transaction.'
                 ]
             ],
             [
                 'id' => 'article-2',
-                'title' => 'Article 2 - Identification de l\'Entreprise',
+                'title' => 'Article 2 - Qui Sommes-Nous ?',
                 'icon' => 'fas fa-building',
                 'content' => [
                     'Dénomination sociale : LEBOSS TECH MARKET',
-                    'Forme juridique : Société A Responsabilité Limitée',
+                    'Registre de Commerce (RCCM) : CI-ABJ-03-2026-B12-00749',
                     'Siège social : Macory Anoumabo, Abidjan, Côte d\'Ivoire',
                     'Téléphone : +225 05 66 82 16 09',
                     'Email : contact@lebosstech.ci',
-                    'Directeur de publication : GOH TANGUY BRUNO'
+                    'Votre interlocuteur dédié : GOH TANGUY BRUNO'
                 ]
             ],
             [
                 'id' => 'article-3',
-                'title' => 'Article 3 - Produits et Services',
-                'icon' => 'fas fa-laptop',
+                'title' => 'Article 3 - Nos Solutions et Équipements',
+                'icon' => 'fas fa-laptop-code',
                 'content' => [
-                    'LEBOSS TECH MARKET commercialise des équipements informatiques reconditionnés : ordinateurs de bureau, ordinateurs portables, imprimantes laser, écrans, moniteurs, accessoires informatiques et composants PC.',
-                    'Tous nos produits sont reconditionnés selon un processus rigoureux de 5 étapes : sélection, tests approfondis, nettoyage complet, contrôle qualité et validation finale.',
-                    'Les produits sont présentés avec leurs caractéristiques techniques, photos et prix sur notre site web.',
-                    'Les prix sont exprimés en Francs CFA (FCFA) toutes taxes comprises.'
+                    'Nous ne vendons pas seulement du matériel, nous proposons des solutions adaptées à vos besoins (ordinateurs, serveurs, imprimantes, réseaux, reconditionné premium).',
+                    'Nos équipements reconditionnés passent par un processus strict en 5 étapes pour garantir une fiabilité équivalente au neuf, vous permettant d\'optimiser votre budget IT.',
+                    'Nous assurons un devoir de conseil : nos experts vous aident à choisir exactement ce qu\'il vous faut, ni plus, ni moins.'
                 ]
             ],
             [
                 'id' => 'article-4',
-                'title' => 'Article 4 - Commandes et Confirmation',
-                'icon' => 'fas fa-shopping-cart',
+                'title' => 'Article 4 - Collaborer et Commander',
+                'icon' => 'fas fa-comments',
                 'content' => [
-                    'Les commandes peuvent être passées via WhatsApp au +225 05 66 82 16 09 ou par email à contact@lebosstech.ci.',
-                    'Toute commande doit préciser : nom et prénoms, adresse de livraison, numéro de téléphone, produits souhaités.',
-                    'Une confirmation de commande sera envoyée par WhatsApp ou email avec récapitulatif et montant total.',
-                    'La commande n\'est définitive qu\'après confirmation écrite de LEBOSS TECH MARKET.'
+                    'La simplicité est notre mot d\'ordre. Vos projets ou commandes peuvent être discutés directement via WhatsApp (+225 05 66 82 16 09) ou par email.',
+                    'Pour les entreprises, nous établissons systématiquement un devis détaillé, clair et sans frais cachés.',
+                    'Un accord clair : votre commande est validée dès votre acceptation du devis, lançant immédiatement la préparation par nos techniciens.'
                 ]
             ],
             [
                 'id' => 'article-5',
-                'title' => 'Article 5 - Prix et Modalités de Paiement',
-                'icon' => 'fas fa-money-bill-wave',
+                'title' => 'Article 5 - Tarification et Flexibilité de Paiement',
+                'icon' => 'fas fa-chart-pie',
                 'content' => [
-                    'Les prix sont indiqués en Francs CFA (FCFA) et peuvent être modifiés sans préavis.',
-                    'Pour Abidjan : Paiement à la livraison (espèces ou mobile money)',
-                    'Pour l\'intérieur du pays : Paiement obligatoire avant expédition via Wave, Orange Money, MTN Money ou Moov Money',
-                    'Aucune commande ne sera expédiée sans paiement préalable pour les livraisons hors Abidjan.',
-                    'Un reçu ou facture sera fourni pour chaque transaction.'
+                    'Nos prix sont pensés pour être compétitifs tout en garantissant un haut niveau de service et de suivi post-déploiement.',
+                    'Sur Abidjan, nous offrons la flexibilité d\'un paiement à la livraison, après vérification et validation par vos soins.',
+                    'Pour nos partenaires en province, un paiement préalable sécurisé (Wave, Orange, MTN, virement bancaire) est requis avant expédition.',
+                    'Pour les grands comptes et marchés publics, des conditions de paiement différé peuvent être étudiées sur dossier.'
                 ]
             ],
             [
                 'id' => 'article-6',
-                'title' => 'Article 6 - Livraison',
-                'icon' => 'fas fa-truck',
+                'title' => 'Article 6 - Livraison et Déploiement',
+                'icon' => 'fas fa-shipping-fast',
                 'content' => [
-                    'Zone Abidjan : Livraison à domicile sous 24-48h ouvrées, paiement à la livraison possible',
-                    'Intérieur Côte d\'Ivoire : Expédition sous 2-3 jours ouvrés après réception du paiement',
-                    'Transport via compagnies agréées (UTB, STIF, etc.) aux frais du client',
-                    'Délais indicatifs pouvant varier selon disponibilité et conditions de transport',
-                    'Le client doit vérifier l\'état du colis en présence du livreur et signaler tout dommage immédiatement.'
+                    'Votre temps est précieux : sur Abidjan, nous visons une livraison et/ou installation sous 24 à 48 heures.',
+                    'Pour l\'intérieur du pays, nous expédions via des partenaires de confiance sous 2-3 jours ouvrés, avec un suivi rigoureux.',
+                    'En cas d\'imprévu logistique, nous nous engageons à vous informer proactivement et à trouver une solution d\'urgence.'
                 ]
             ],
             [
                 'id' => 'article-7',
-                'title' => 'Article 7 - Garantie 90 Jours',
-                'icon' => 'fas fa-shield-alt',
+                'title' => 'Article 7 - Sérénité : Notre Garantie',
+                'icon' => 'fas fa-shield-check',
                 'content' => [
-                    'Tous nos produits reconditionnés bénéficient d\'une garantie de 90 jours à compter de la date de livraison.',
-                    'La garantie couvre les défauts de fonctionnement et vices cachés non apparents lors de la livraison.',
-                    'Sont exclus de la garantie : dommages dus à une mauvaise utilisation, chute, oxydation, virus informatiques.',
-                    'La garantie s\'exerce par retour du produit défaillant accompagné de la facture d\'achat.',
-                    'LEBOSS TECH MARKET s\'engage à réparer ou remplacer le produit défaillant dans un délai de 7 jours ouvrés.'
+                    'Nous sommes certains de la qualité de nos produits. C\'est pourquoi nous offrons une garantie standard de 90 jours, extensible selon vos besoins B2B.',
+                    'Notre Service Après-Vente n\'est pas un centre d\'appels anonyme, mais une équipe technique réactive basée à Abidjan.',
+                    'Détails de couverture ? Consultez notre page dédiée à la Garantie Totale LEBOSS TECH.'
                 ]
             ],
             [
                 'id' => 'article-8',
-                'title' => 'Article 8 - Droit de Rétractation et Retours',
-                'icon' => 'fas fa-undo',
+                'title' => 'Article 8 - Droit à l\'Erreur (Retours)',
+                'icon' => 'fas fa-exchange-alt',
                 'content' => [
-                    'Le client dispose d\'un délai de 3 jours calendaires à compter de la réception pour exercer son droit de rétractation.',
-                    'Le produit doit être retourné dans son état d\'origine, avec tous ses accessoires et emballages.',
-                    'Les frais de retour sont à la charge du client sauf en cas de produit défaillant.',
-                    'Le remboursement sera effectué dans un délai de 7 jours ouvrés après réception du produit retourné.',
-                    'Aucun retour ne sera accepté passé le délai de 3 jours, sauf cas de garantie.'
+                    'Parce que les besoins peuvent évoluer, nous vous accordons un droit à l\'erreur de 3 jours calendaires pour changer d\'avis sur du matériel non utilisé.',
+                    'Si l\'équipement ne convient pas à votre infrastructure malgré nos conseils, nous étudierons ensemble un échange pour la solution adéquate.',
+                    'Notre but est que chaque équipement déployé soit utile et performant pour vos opérations.'
                 ]
             ],
             [
                 'id' => 'article-9',
-                'title' => 'Article 9 - Protection des Données Personnelles',
-                'icon' => 'fas fa-user-shield',
+                'title' => 'Article 9 - Confidentialité et Sécurité',
+                'icon' => 'fas fa-user-lock',
                 'content' => [
-                    'LEBOSS TECH MARKET s\'engage à protéger les données personnelles de ses clients conformément au RGPD.',
-                    'Les données collectées (nom, téléphone, adresse) servent uniquement au traitement des commandes.',
-                    'Aucune donnée n\'est transmise à des tiers sans consentement explicite du client.',
-                    'Le client dispose d\'un droit d\'accès, de rectification et de suppression de ses données.',
-                    'Pour exercer ces droits : contact@lebosstech.ci'
+                    'Nous connaissons l\'importance de vos données. Toute information technique ou commerciale échangée reste strictement confidentielle.',
+                    'Lors du reconditionnement, tous les supports de stockage sont effacés de manière sécurisée selon des standards militaires.',
+                    'Vos données de contact ne seront jamais vendues. Nous ne vous contacterons que pour ce qui compte vraiment pour votre activité.'
                 ]
             ],
             [
                 'id' => 'article-10',
-                'title' => 'Article 10 - Responsabilité',
+                'title' => 'Article 10 - Responsabilité Partagée',
                 'icon' => 'fas fa-balance-scale',
                 'content' => [
-                    'LEBOSS TECH MARKET ne saurait être tenue responsable des dommages indirects ou immatériels.',
-                    'Notre responsabilité est limitée au montant de la commande concernée.',
-                    'Le client est responsable de la vérification de la compatibilité des produits avec son matériel existant.',
-                    'LEBOSS TECH MARKET ne peut être tenue responsable des retards de livraison dus à des causes extérieures.'
+                    'Nous assumons pleinement la responsabilité de la qualité de notre matériel et de nos installations réseau.',
+                    'De votre côté, la sécurisation de vos environnements informatiques (antivirus, onduleurs, sauvegardes) assure la pérennité de notre travail commun.',
+                    'En cas de problème complexe, nous chercherons toujours la solution technique avant de chercher le coupable.'
                 ]
             ],
             [
                 'id' => 'article-11',
-                'title' => 'Article 11 - Résolution des Litiges',
-                'icon' => 'fas fa-gavel',
+                'title' => 'Article 11 - Résolution Intelligente des Litiges',
+                'icon' => 'fas fa-comments-dollar',
                 'content' => [
-                    'En cas de litige, une solution amiable sera recherchée en priorité.',
-                    'Le client peut nous contacter par WhatsApp (+225 05 66 82 16 09) ou email (contact@lebosstech.ci).',
-                    'À défaut d\'accord amiable, les tribunaux d\'Abidjan seront seuls compétents.',
-                    'Le droit ivoirien s\'applique aux présentes conditions de vente.',
-                    'Médiation possible via les associations de consommateurs ivoiriennes.'
-                ]
-            ],
-            [
-                'id' => 'article-12',
-                'title' => 'Article 12 - Mentions Légales',
-                'icon' => 'fas fa-info-circle',
-                'content' => [
-                    'Site web : www.lebosstech.ci',
-                    'Hébergement : [À préciser selon hébergeur choisi]',
-                    'Conformité : Respect de la réglementation ivoirienne sur le e-commerce',
-                    'TVA : Non assujetti (régime micro-entreprise)',
-                    'Dernière mise à jour : ' . date('d/m/Y')
+                    'La voie judiciaire est un échec. En cas de désaccord, nous nous asseyons autour d\'une table pour trouver une solution amiable et commerciale.',
+                    'Ce n\'est qu\'en dernier recours, après épuisement de tout dialogue, que les juridictions d\'Abidjan seraient saisies, sous l\'égide du droit ivoirien.'
                 ]
             ]
         ];
 
         // Navigation rapide
         $navigation = [
-            ['id' => 'article-1', 'title' => 'Objet et Application'],
-            ['id' => 'article-2', 'title' => 'Identification'],
-            ['id' => 'article-3', 'title' => 'Produits et Services'],
-            ['id' => 'article-4', 'title' => 'Commandes'],
-            ['id' => 'article-5', 'title' => 'Prix et Paiement'],
-            ['id' => 'article-6', 'title' => 'Livraison'],
-            ['id' => 'article-7', 'title' => 'Garantie 90 Jours'],
-            ['id' => 'article-8', 'title' => 'Retours'],
-            ['id' => 'article-9', 'title' => 'Données Personnelles'],
+            ['id' => 'article-1', 'title' => 'Notre Engagement'],
+            ['id' => 'article-2', 'title' => 'Qui Sommes-Nous'],
+            ['id' => 'article-3', 'title' => 'Nos Solutions'],
+            ['id' => 'article-4', 'title' => 'Collaboration'],
+            ['id' => 'article-5', 'title' => 'Tarifs & Paiement'],
+            ['id' => 'article-6', 'title' => 'Déploiement'],
+            ['id' => 'article-7', 'title' => 'Notre Garantie'],
+            ['id' => 'article-8', 'title' => 'Droit à l\'Erreur'],
+            ['id' => 'article-9', 'title' => 'Confidentialité'],
             ['id' => 'article-10', 'title' => 'Responsabilité'],
-            ['id' => 'article-11', 'title' => 'Litiges'],
-            ['id' => 'article-12', 'title' => 'Mentions Légales']
+            ['id' => 'article-11', 'title' => 'Résolution Intelligente']
         ];
 
         return view('terms', compact('sections', 'navigation'));
+    }
+
+    /**
+     * Affiche la nouvelle page des Informations de Garantie de LEBOSS TECH
+     */
+    public function warranty()
+    {
+        return view('warranty');
     }
 }

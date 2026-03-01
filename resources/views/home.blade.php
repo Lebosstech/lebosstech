@@ -1,123 +1,262 @@
 @extends('layouts.public')
 
-@section('title', 'LEBOSS TECH MARKET - Spécialiste Informatique Reconditionnée Abidjan')
-@section('description', 'LEBOSS TECH MARKET : Ordinateurs, laptops, imprimantes laser et accessoires informatiques reconditionnés. Garantie 6 mois, prix imbattables à Abidjan.')
+@section('title', 'LEBOSS TECH - Solutions Informatiques & Numériques | Abidjan')
+@section('description', 'LEBOSS TECH : votre partenaire informatique de confiance. Vente de matériel, installation réseau, maintenance, solutions numériques et marketing digital à Abidjan.')
 
 @section('content')
-<!-- Hero Slider -->
-<section class="relative">
-    @if($sliders->count() > 0)
-        <div class="slider-container relative h-96 md:h-[600px] overflow-hidden">
-            @foreach($sliders as $index => $slider)
-                <div class="slide {{ $index === 0 ? 'active' : '' }} absolute inset-0 transition-opacity duration-1000">
-                    <div class="relative h-full">
-                        @php
-                            $sliderImageUrl = null;
-                            // Priorité 1 : Media Library avec conversion
-                            if ($slider->hasMedia('banners')) {
-                                $sliderImageUrl = $slider->getFirstMediaUrl('banners', 'banner');
-                            }
-                            // Priorité 2 : Stockage direct
-                            elseif ($slider->image) {
-                                $sliderImageUrl = asset($slider->image);
-                            }
-                        @endphp
-                        
-                        @if($sliderImageUrl)
-                            <img src="{{ $sliderImageUrl }}" alt="{{ $slider->title }}" class="w-full h-full object-cover">
-                        @else
-                            <div class="w-full h-full bg-gradient-to-r from-leboss-600 to-leboss-dark-600"></div>
-                        @endif
-                        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="text-center text-white max-w-5xl mx-auto px-4">
-                                <h1 class="text-4xl md:text-7xl font-bold mb-6 text-shadow-lg">{{ $slider->title }}</h1>
-                                @if($slider->subtitle)
-                                    <p class="text-xl md:text-3xl mb-10 font-light leading-relaxed">{{ $slider->subtitle }}</p>
-                                @endif
-                                @if($slider->button_text && $slider->button_link)
-                                    <a href="{{ $slider->button_link }}" class="bg-leboss-500 hover:bg-leboss-600 text-white px-10 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 inline-block shadow-lg">
-                                        {{ $slider->button_text }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
+<!-- Hero Section -->
+<section class="relative bg-navy-950 overflow-hidden min-h-[600px] flex items-center">
+    <!-- Background pattern -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950"></div>
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 40 40&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20.5z&quot;/%3E%3C/g%3E%3C/svg%3E');"></div>
+        <!-- Gradient orbs -->
+        <div class="absolute top-20 right-20 w-96 h-96 bg-leboss-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-24 w-full">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="inline-flex items-center bg-leboss-500/10 border border-leboss-500/20 text-leboss-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 tracking-wide uppercase">
+                    <span class="w-2 h-2 bg-leboss-500 rounded-full mr-2 animate-pulse"></span>
+                    Solutions IT pour entreprises
                 </div>
-            @endforeach
-            
-            @if($sliders->count() > 1)
-                <!-- Navigation arrows -->
-                <button class="slider-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all">
-                    <i class="fas fa-chevron-left text-xl"></i>
-                </button>
-                <button class="slider-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all">
-                    <i class="fas fa-chevron-right text-xl"></i>
-                </button>
-                
-                <!-- Dots indicator -->
-                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                    @foreach($sliders as $index => $slider)
-                        <button class="slider-dot w-4 h-4 rounded-full bg-white {{ $index === 0 ? 'bg-opacity-100' : 'bg-opacity-50' }} transition-all"></button>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-    @else
-        <!-- Default hero when no sliders -->
-        <div class="relative h-96 md:h-[600px] bg-gradient-to-r from-leboss-600 to-leboss-dark-600">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center text-white max-w-5xl mx-auto px-4">
-                    <h1 class="text-4xl md:text-7xl font-bold mb-6">LEBOSS TECH MARKET</h1>
-                    <p class="text-xl md:text-3xl mb-10 font-light">Spécialiste de l'informatique reconditionnée - Ordinateurs, Imprimantes & Accessoires</p>
-                    <a href="{{ route('products.index') }}" class="bg-white text-leboss-500 px-10 py-4 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 inline-block shadow-lg">
-                        Découvrir nos produits
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+                    Votre partenaire<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-leboss-400 to-leboss-500">informatique</span><br>
+                    de confiance
+                </h1>
+                <p class="text-lg text-navy-300 mb-10 leading-relaxed max-w-lg">
+                    LEBOSS TECH accompagne les entreprises et professionnels dans leur transformation numérique. 
+                    Matériel, réseaux, maintenance et solutions sur mesure.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="{{ route('services.index') }}" 
+                       class="bg-leboss-500 hover:bg-leboss-600 text-white px-8 py-3.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-leboss-500/25 inline-flex items-center justify-center">
+                        Découvrir nos services
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="https://wa.me/2250566821609?text=Bonjour, je souhaite un devis pour mon entreprise" target="_blank"
+                       class="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-3.5 rounded-lg text-sm font-semibold transition-all inline-flex items-center justify-center backdrop-blur-sm">
+                        <i class="fab fa-whatsapp mr-2 text-green-400"></i>
+                        Demander un devis
                     </a>
                 </div>
             </div>
+
+            <!-- Stats cards -->
+            <div class="hidden lg:grid grid-cols-2 gap-4">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                    <div class="w-12 h-12 bg-leboss-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-building text-leboss-400 text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">500+</div>
+                    <div class="text-navy-400 text-sm">Clients entreprises</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all mt-8">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-cogs text-blue-400 text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">7</div>
+                    <div class="text-navy-400 text-sm">Domaines d'expertise</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">5 ans</div>
+                    <div class="text-navy-400 text-sm">D'expérience terrain</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all mt-8">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-headset text-purple-400 text-xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-white mb-1">24/7</div>
+                    <div class="text-navy-400 text-sm">Support disponible</div>
+                </div>
+            </div>
         </div>
-    @endif
+    </div>
 </section>
 
-<!-- Pourquoi le Reconditionné Section -->
-<section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Trust Bar - Logos partenaires -->
+<section class="bg-white border-b border-gray-100 py-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <p class="text-xs text-navy-400 uppercase tracking-wider font-semibold mb-4 md:mb-0 whitespace-nowrap">Partenaires & marques</p>
+            <div class="flex items-center space-x-10 md:space-x-14 opacity-40 grayscale">
+                <span class="text-2xl font-bold text-navy-600 tracking-tight">Dell</span>
+                <span class="text-2xl font-bold text-navy-600 tracking-tight">HP</span>
+                <span class="text-2xl font-bold text-navy-600 tracking-tight">Lenovo</span>
+                <span class="text-2xl font-bold text-navy-600 tracking-tight hidden sm:block">Microsoft</span>
+                <span class="text-2xl font-bold text-navy-600 tracking-tight hidden md:block">Canon</span>
+                <span class="text-2xl font-bold text-navy-600 tracking-tight hidden lg:block">Cisco</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nos Services -->
+<section class="py-20 bg-gray-50 reveal-on-scroll">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Pourquoi choisir le reconditionné ?</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Découvrez les avantages du matériel informatique reconditionné : qualité professionnelle, prix attractifs et engagement écologique</p>
+            <div class="inline-flex items-center bg-leboss-50 text-leboss-600 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 uppercase tracking-wider">
+                Ce que nous faisons
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">Une expertise complète à votre service</h2>
+            <p class="text-navy-500 max-w-2xl mx-auto">De la fourniture de matériel à la transformation digitale, LEBOSS TECH couvre l'ensemble de vos besoins IT</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-dollar-sign text-green-600 text-3xl"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            @php
+                $homeServices = [
+                    ['icon' => 'fas fa-laptop', 'title' => 'Matériel informatique', 'desc' => 'Vente d\'ordinateurs, imprimantes et équipements réseau', 'color' => 'orange'],
+                    ['icon' => 'fas fa-network-wired', 'title' => 'Réseaux & infrastructure', 'desc' => 'Installation LAN, Wi-Fi, câblage et serveurs', 'color' => 'blue'],
+                    ['icon' => 'fas fa-tools', 'title' => 'Maintenance & support', 'desc' => 'Dépannage, maintenance préventive et corrective', 'color' => 'green'],
+                    ['icon' => 'fas fa-print', 'title' => 'Services d\'impression', 'desc' => 'Documents professionnels, flyers, cartes de visite', 'color' => 'purple'],
+                    ['icon' => 'fas fa-code', 'title' => 'Solutions numériques', 'desc' => 'Applications, sites web et outils métiers', 'color' => 'indigo'],
+                    ['icon' => 'fas fa-bullhorn', 'title' => 'Marketing digital', 'desc' => 'Visibilité en ligne, SEO et réseaux sociaux', 'color' => 'pink'],
+                    ['icon' => 'fas fa-handshake', 'title' => 'Conseil IT', 'desc' => 'Audit, conseil et transformation numérique', 'color' => 'teal'],
+                ];
+            @endphp
+
+            @foreach($homeServices as $index => $svc)
+                <a href="{{ route('services.index') }}#service-{{ $index + 1 }}" class="group">
+                    <div class="bg-white rounded-xl p-6 h-full border border-gray-100 hover:border-leboss-200 hover:shadow-lg hover:shadow-leboss-500/5 transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-{{ $svc['color'] }}-50 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i class="{{ $svc['icon'] }} text-{{ $svc['color'] }}-500 text-lg"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-navy-900 mb-2 group-hover:text-leboss-500 transition-colors">{{ $svc['title'] }}</h3>
+                        <p class="text-navy-500 text-xs leading-relaxed">{{ $svc['desc'] }}</p>
+                    </div>
+                </a>
+            @endforeach
+
+            <!-- CTA Card -->
+            <a href="{{ route('services.index') }}" class="group">
+                <div class="bg-gradient-to-br from-navy-900 to-navy-800 rounded-xl p-6 h-full flex flex-col items-center justify-center text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-arrow-right text-white text-lg"></i>
+                    </div>
+                    <h3 class="text-sm font-bold text-white mb-1">Tout voir</h3>
+                    <p class="text-navy-400 text-xs">En détail</p>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Prix Imbattables</h3>
-                <p class="text-gray-600">Économisez jusqu'à 70% par rapport au neuf tout en conservant des performances excellentes</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Chiffres Clés -->
+<section class="py-16 bg-navy-950 counter-section">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="500" data-suffix="+">0</div>
+                <div class="text-navy-400 text-sm font-medium">Clients accompagnés</div>
             </div>
-            
-            <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-tools text-blue-600 text-3xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Testés & Garantis</h3>
-                <p class="text-gray-600">Tous nos produits sont rigoureusement testés et garantis 6 mois pour votre sérénité</p>
+            <div class="text-center">
+                <div class="text-4xl md:text-5xl font-bold text-leboss-400 mb-2 counter" data-target="1000" data-suffix="+">0</div>
+                <div class="text-navy-400 text-sm font-medium">Interventions réalisées</div>
             </div>
-            
-            <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-leaf text-green-600 text-3xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Écologique</h3>
-                <p class="text-gray-600">Participez à l'économie circulaire en donnant une seconde vie au matériel informatique</p>
+            <div class="text-center">
+                <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="5" data-suffix=" ans">0</div>
+                <div class="text-navy-400 text-sm font-medium">D'expérience</div>
             </div>
-            
-            <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-award text-purple-600 text-3xl"></i>
+            <div class="text-center">
+                <div class="text-4xl md:text-5xl font-bold text-leboss-400 mb-2 counter" data-target="7" data-suffix="">0</div>
+                <div class="text-navy-400 text-sm font-medium">Domaines d'expertise</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pourquoi LEBOSS TECH -->
+<section class="py-20 bg-white reveal-on-scroll">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="inline-flex items-center bg-leboss-50 text-leboss-600 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 uppercase tracking-wider">
+                    Pourquoi nous choisir
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Qualité Pro</h3>
-                <p class="text-gray-600">Matériel de marques premium (Dell, HP, Lenovo) utilisé en entreprise</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-6">Un partenaire IT qui comprend vos enjeux</h2>
+                <p class="text-navy-500 mb-8 leading-relaxed">
+                    Depuis 2019, LEBOSS TECH accompagne les entreprises, PME et institutions dans l'optimisation 
+                    de leur infrastructure informatique. Notre approche sur mesure garantit des solutions adaptées 
+                    à vos besoins réels.
+                </p>
+                <div class="space-y-5">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-leboss-50 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-bolt text-leboss-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-navy-900 mb-1">Réactivité garantie</h3>
+                            <p class="text-navy-500 text-sm">Intervention sous 24h et devis gratuit pour tous vos projets</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-user-tie text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-navy-900 mb-1">Expertise certifiée</h3>
+                            <p class="text-navy-500 text-sm">Techniciens qualifiés, formés aux standards Dell, HP et Lenovo</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-shield-alt text-green-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-navy-900 mb-1">Garantie & suivi</h3>
+                            <p class="text-navy-500 text-sm">Matériel garanti 6 mois, maintenance préventive et support continu</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-purple-500"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-navy-900 mb-1">Service de proximité</h3>
+                            <p class="text-navy-500 text-sm">Présent à Abidjan avec déplacement chez le client dans tout le district</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual -->
+            <div class="hidden lg:block">
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-navy-50 to-leboss-50 rounded-2xl p-10">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="bg-white rounded-xl p-5 shadow-sm">
+                                <i class="fas fa-laptop text-leboss-500 text-2xl mb-3"></i>
+                                <h4 class="text-sm font-bold text-navy-900">Vente & Distribution</h4>
+                                <p class="text-xs text-navy-500 mt-1">Matériel professionnel</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-5 shadow-sm">
+                                <i class="fas fa-network-wired text-blue-500 text-2xl mb-3"></i>
+                                <h4 class="text-sm font-bold text-navy-900">Infrastructure</h4>
+                                <p class="text-xs text-navy-500 mt-1">Réseaux & serveurs</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-5 shadow-sm">
+                                <i class="fas fa-code text-indigo-500 text-2xl mb-3"></i>
+                                <h4 class="text-sm font-bold text-navy-900">Développement</h4>
+                                <p class="text-xs text-navy-500 mt-1">Solutions sur mesure</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-5 shadow-sm">
+                                <i class="fas fa-headset text-green-500 text-2xl mb-3"></i>
+                                <h4 class="text-sm font-bold text-navy-900">Support 24/7</h4>
+                                <p class="text-xs text-navy-500 mt-1">Assistance continue</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-4 -right-4 bg-leboss-500 text-white px-5 py-2.5 rounded-xl shadow-lg shadow-leboss-500/30 text-sm font-bold">
+                        Depuis 2019 <i class="fas fa-check-circle ml-1"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -125,51 +264,43 @@
 
 <!-- Categories Section -->
 @if($categories->count() > 0)
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-20 bg-gray-50 reveal-on-scroll">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Nos Spécialités</h2>
-            <p class="text-xl text-gray-600">Découvrez notre gamme complète de matériel informatique reconditionné</p>
+            <div class="inline-flex items-center bg-leboss-50 text-leboss-600 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 uppercase tracking-wider">
+                Notre catalogue
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">Nos Catégories de Produits</h2>
+            <p class="text-navy-500 max-w-2xl mx-auto">Matériel informatique professionnel neuf et reconditionné, garanti et testé</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($categories as $category)
                 <a href="{{ route('products.category', $category->slug) }}" class="group">
-                    <div class="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 p-8 text-center border border-gray-100">
-                        @if($category->getFirstMediaUrl('images'))
-                            <img src="{{ $category->getFirstMediaUrl('images', 'thumb') }}" alt="{{ $category->name }}" class="w-20 h-20 mx-auto mb-6 object-cover rounded-lg">
-                        @else
-                            <div class="w-20 h-20 mx-auto mb-6 bg-leboss-100 rounded-lg flex items-center justify-center">
+                    <div class="bg-white rounded-xl p-6 border border-gray-100 hover:border-leboss-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-leboss-50 rounded-xl flex items-center justify-center">
                                 @switch($category->slug)
                                     @case('ordinateurs-bureau')
-                                        <i class="fas fa-desktop text-leboss-600 text-3xl"></i>
+                                        <i class="fas fa-desktop text-leboss-500 text-lg"></i>
                                         @break
                                     @case('ordinateurs-portables')
-                                        <i class="fas fa-laptop text-leboss-600 text-3xl"></i>
+                                        <i class="fas fa-laptop text-leboss-500 text-lg"></i>
                                         @break
                                     @case('imprimantes-laser')
-                                        <i class="fas fa-print text-leboss-600 text-3xl"></i>
+                                        <i class="fas fa-print text-leboss-500 text-lg"></i>
                                         @break
                                     @case('ecrans-moniteurs')
-                                        <i class="fas fa-tv text-leboss-600 text-3xl"></i>
-                                        @break
-                                    @case('accessoires-informatiques')
-                                        <i class="fas fa-keyboard text-leboss-600 text-3xl"></i>
-                                        @break
-                                    @case('composants-pc')
-                                        <i class="fas fa-microchip text-leboss-600 text-3xl"></i>
+                                        <i class="fas fa-tv text-leboss-500 text-lg"></i>
                                         @break
                                     @default
-                                        <i class="fas fa-computer text-leboss-600 text-3xl"></i>
+                                        <i class="fas fa-computer text-leboss-500 text-lg"></i>
                                 @endswitch
                             </div>
-                        @endif
-                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-leboss-600 transition-colors mb-3">{{ $category->name }}</h3>
-                        <p class="text-gray-600 mb-4 text-sm">{{ $category->description }}</p>
-                        <div class="flex items-center justify-center text-leboss-600 font-semibold">
-                            <span class="mr-2">{{ $category->products_count }} produits</span>
-                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            <span class="text-xs font-semibold text-navy-400 bg-navy-50 px-3 py-1 rounded-full">{{ $category->products_count }} produits</span>
                         </div>
+                        <h3 class="text-base font-bold text-navy-900 group-hover:text-leboss-500 transition-colors mb-1">{{ $category->name }}</h3>
+                        <p class="text-navy-500 text-sm">{{ $category->description }}</p>
                     </div>
                 </a>
             @endforeach
@@ -178,58 +309,52 @@
 </section>
 @endif
 
-<!-- Featured Products Section -->
+<!-- Featured Products -->
 @if($featuredProducts->count() > 0)
-<section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Nos Meilleures Offres</h2>
-            <p class="text-xl text-gray-600">Sélection de nos produits reconditionnés les plus populaires</p>
+<section class="py-20 bg-white reveal-on-scroll">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div class="flex items-end justify-between mb-12">
+            <div>
+                <div class="inline-flex items-center bg-leboss-50 text-leboss-600 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 uppercase tracking-wider">
+                    Produits vedettes
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-900">Nos meilleures offres</h2>
+            </div>
+            <a href="{{ route('products.index') }}" class="hidden md:inline-flex items-center text-leboss-500 hover:text-leboss-600 text-sm font-semibold">
+                Voir tout le catalogue <i class="fas fa-arrow-right ml-2"></i>
+            </a>
         </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($featuredProducts as $product)
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 overflow-hidden">
+                <div class="bg-white rounded-xl border border-gray-100 hover:border-leboss-200 hover:shadow-lg transition-all duration-300 overflow-hidden group hover:-translate-y-1">
                     <div class="relative">
                         @if($product->getFirstMediaUrl('images'))
-                            <img src="{{ $product->getFirstMediaUrl('images', 'thumb') }}" alt="{{ $product->name }}" class="w-full h-56 object-cover">
+                            <img src="{{ $product->getFirstMediaUrl('images', 'thumb') }}" alt="{{ $product->name }}" class="w-full h-48 object-cover">
                         @else
-                            <div class="w-full h-56 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                                <i class="fas fa-image text-gray-400 text-5xl"></i>
+                            <div class="w-full h-48 bg-gradient-to-br from-navy-50 to-gray-100 flex items-center justify-center">
+                                <i class="fas fa-image text-navy-200 text-4xl"></i>
                             </div>
                         @endif
-                        @if($product->stock <= 0)
-                            <div class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                                Rupture de stock
-                            </div>
+                        @if($product->stock > 0)
+                            <span class="absolute top-3 right-3 bg-green-500 text-white text-xs px-2.5 py-1 rounded-full font-semibold">En stock</span>
+                        @else
+                            <span class="absolute top-3 right-3 bg-red-500 text-white text-xs px-2.5 py-1 rounded-full font-semibold">Rupture</span>
                         @endif
-                        <div class="absolute top-3 right-3 bg-leboss-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            ⭐ Vedette
-                        </div>
-                        <div class="absolute bottom-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Reconditionné
-                        </div>
                     </div>
-                    
-                    <div class="p-6">
-                        <div class="mb-3">
-                            <span class="text-xs text-leboss-600 font-bold bg-leboss-50 px-2 py-1 rounded-full">{{ $product->category->name }}</span>
+                    <div class="p-5">
+                        <span class="text-xs text-leboss-500 font-semibold">{{ $product->category->name }}</span>
+                        <h3 class="font-bold text-navy-900 mt-1 mb-2 text-sm line-clamp-2 group-hover:text-leboss-500 transition-colors">{{ $product->name }}</h3>
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="text-lg font-bold text-navy-900">{{ number_format($product->price, 0, ',', ' ') }} <span class="text-xs text-navy-400 font-normal">FCFA</span></span>
                         </div>
-                        <h3 class="font-bold text-gray-900 mb-3 text-lg line-clamp-2">{{ $product->name }}</h3>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ $product->short_description }}</p>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-2xl font-bold text-leboss-600">{{ number_format($product->price, 0, ',', ' ') }} FCFA</span>
-                            @if($product->stock > 0)
-                                <span class="text-green-600 text-sm font-semibold">✓ En stock</span>
-                            @endif
-                        </div>
-                        <div class="flex space-x-2">
-                            <a href="{{ route('products.show', $product->slug) }}" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-center py-3 rounded-lg transition-colors font-semibold">
-                                Voir détails
+                        <div class="flex gap-2 mt-4">
+                            <a href="{{ route('products.show', $product->slug) }}" class="flex-1 bg-navy-50 hover:bg-navy-100 text-navy-700 text-center py-2.5 rounded-lg text-xs font-semibold transition-colors">
+                                Détails
                             </a>
-                            <a href="{{ $product->whatsapp_url }}" target="_blank" onclick="fetch('{{ route('products.whatsapp-click', $product) }}', {method: 'POST', headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'}})" 
-                               class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-3 rounded-lg transition-colors font-semibold">
-                                <i class="fab fa-whatsapp mr-1"></i> Commander
+                            <a href="{{ $product->whatsapp_url }}" target="_blank" onclick="fetch('{{ route('products.whatsapp-click', $product) }}', {method: 'POST', headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'}})"
+                               class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-2.5 rounded-lg text-xs font-semibold transition-colors">
+                                <i class="fab fa-whatsapp mr-1"></i>Commander
                             </a>
                         </div>
                     </div>
@@ -237,86 +362,41 @@
             @endforeach
         </div>
         
-        <div class="text-center mt-16">
-            <a href="{{ route('products.index') }}" class="bg-leboss-500 hover:bg-leboss-600 text-white px-10 py-4 rounded-lg text-xl font-semibold transition-all transform hover:scale-105 inline-block shadow-lg">
-                Voir tous les produits
+        <div class="text-center mt-10 md:hidden">
+            <a href="{{ route('products.index') }}" class="inline-flex items-center text-leboss-500 hover:text-leboss-600 text-sm font-semibold">
+                Voir tout le catalogue <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
     </div>
 </section>
 @endif
 
-<!-- Témoignages / Confiance Section -->
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Pourquoi nous faire confiance ?</h2>
-            <p class="text-xl text-gray-600">LEBOSS TECH, votre partenaire de confiance pour l'informatique reconditionnée</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-xl">
-                <div class="bg-green-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-shipping-fast text-white text-3xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Livraison Express</h3>
-                <p class="text-gray-700 text-lg">Livraison rapide et sécurisée dans tout Abidjan. Commandez aujourd'hui, recevez demain à domicile ou au bureau.</p>
-            </div>
-            
-            <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl">
-                <div class="bg-blue-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-shield-alt text-white text-3xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Garantie 6 Mois</h3>
-                <p class="text-gray-700 text-lg">Tous nos produits reconditionnés bénéficient d'une garantie de 6 mois. Votre tranquillité d'esprit est notre priorité.</p>
-            </div>
-            
-            <div class="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl">
-                <div class="bg-purple-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fab fa-whatsapp text-white text-3xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Support WhatsApp</h3>
-                <p class="text-gray-700 text-lg">Notre équipe est disponible sur WhatsApp pour vous accompagner avant, pendant et après votre achat.</p>
-            </div>
-        </div>
-        
-        <!-- Stats -->
-        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="p-6">
-                <div class="text-4xl font-bold text-leboss-600 mb-2">500+</div>
-                <div class="text-gray-600">Clients satisfaits</div>
-            </div>
-            <div class="p-6">
-                <div class="text-4xl font-bold text-leboss-600 mb-2">6 mois</div>
-                <div class="text-gray-600">Garantie produits</div>
-            </div>
-            <div class="p-6">
-                <div class="text-4xl font-bold text-leboss-600 mb-2">24h</div>
-                <div class="text-gray-600">Livraison Abidjan</div>
-            </div>
-            <div class="p-6">
-                <div class="text-4xl font-bold text-leboss-600 mb-2">70%</div>
-                <div class="text-gray-600">Économies vs neuf</div>
-            </div>
-        </div>
+<!-- CTA Partenariat -->
+<section class="py-20 bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 relative overflow-hidden">
+    <div class="absolute inset-0">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-leboss-500/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
     </div>
-</section>
-
-<!-- CTA Section -->
-<section class="py-20 bg-gradient-to-r from-leboss-600 to-leboss-dark-600">
-    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Prêt à équiper votre bureau ?</h2>
-        <p class="text-xl text-leboss-100 mb-10 leading-relaxed">Contactez-nous dès maintenant via WhatsApp pour obtenir un devis personnalisé ou passer votre commande. Notre équipe vous conseille gratuitement !</p>
+    <div class="relative max-w-4xl mx-auto text-center px-6 sm:px-8 lg:px-10">
+        <div class="inline-flex items-center bg-leboss-500/10 border border-leboss-500/20 text-leboss-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wider">
+            Collaborons ensemble
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Prêt à moderniser votre infrastructure IT ?</h2>
+        <p class="text-navy-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Que vous soyez une PME, une grande entreprise ou une institution, 
+            LEBOSS TECH vous propose des solutions adaptées à votre budget et à vos objectifs. 
+            Devis gratuit et sans engagement.
+        </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/2250566821609?text=Bonjour, je souhaite un devis pour équiper mon bureau" target="_blank" 
-               class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 inline-flex items-center justify-center shadow-lg">
-                <i class="fab fa-whatsapp mr-3 text-2xl"></i>
-                Demander un devis
+            <a href="https://wa.me/2250566821609?text=Bonjour, je souhaite discuter d'un projet informatique pour mon entreprise" target="_blank" 
+               class="bg-leboss-500 hover:bg-leboss-600 text-white px-8 py-4 rounded-xl text-sm font-semibold transition-all hover:shadow-lg hover:shadow-leboss-500/25 inline-flex items-center justify-center">
+                <i class="fab fa-whatsapp mr-2 text-lg"></i>
+                Discuter de votre projet
             </a>
-            <a href="{{ route('products.index') }}" 
-               class="bg-white hover:bg-gray-100 text-leboss-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 inline-flex items-center justify-center shadow-lg">
-                <i class="fas fa-laptop mr-3"></i>
-                Voir le catalogue
+            <a href="{{ route('contact.index') }}" 
+               class="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-xl text-sm font-semibold transition-all inline-flex items-center justify-center backdrop-blur-sm">
+                <i class="fas fa-envelope mr-2"></i>
+                Nous contacter
             </a>
         </div>
     </div>
@@ -339,7 +419,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 slide.classList.toggle('active', i === index);
                 slide.style.opacity = i === index ? '1' : '0';
             });
-            
             dots.forEach((dot, i) => {
                 dot.classList.toggle('bg-opacity-100', i === index);
                 dot.classList.toggle('bg-opacity-50', i !== index);
@@ -366,9 +445,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Auto-advance slides
         setInterval(nextSlide, 6000);
     }
 });
 </script>
-@endpush 
+@endpush
