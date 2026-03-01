@@ -95,7 +95,7 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => env('DB_SSLMODE', 'require'),
-            'endpoint' => env('DB_ENDPOINT', explode('.', env('DB_HOST', ''))[0]),
+            'neon_endpoint' => env('DB_NEON_ENDPOINT', explode('.', env('DB_HOST', ''))[0]),
         ],
 
         'sqlsrv' => [
