@@ -136,7 +136,7 @@
                         <i class="fab fa-whatsapp mr-2"></i>
                         WhatsApp Support
                     </a>
-                    <a href="mailto:contact@lebosstech.store" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-500 transition-colors inline-flex items-center justify-center">
+                    <a href="mailto:contact@lebosstech.ci" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-500 transition-colors inline-flex items-center justify-center">
                         <i class="fas fa-envelope mr-2"></i>
                         Email Contact
                     </a>
@@ -169,8 +169,8 @@
                         <ul class="space-y-2 text-gray-300 text-sm">
                             <li><strong>Adresse :</strong> Macory Anoumabo, Abidjan</li>
                             <li><strong>Téléphone :</strong> +225 05 66 82 16 09</li>
-                            <li><strong>Email :</strong> contact@lebosstech.store</li>
-                            <li><strong>Site web :</strong> www.lebosstech.store</li>
+                            <li><strong>Email :</strong> contact@lebosstech.ci</li>
+                            <li><strong>Site web :</strong> www.lebosstech.ci</li>
                         </ul>
                     </div>
                 </div>

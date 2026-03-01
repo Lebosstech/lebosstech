@@ -135,7 +135,7 @@
                         <a href="https://wa.me/2250566821609" target="_blank" class="text-green-400 hover:text-green-300">
                             <i class="fab fa-whatsapp text-2xl"></i>
                         </a>
-                        <a href="mailto:contact@lebosstech.store" class="text-orange-200 hover:text-white">
+                        <a href="mailto:contact@lebosstech.ci" class="text-orange-200 hover:text-white">
                             <i class="fas fa-envelope text-2xl"></i>
                         </a>
                     </div>
@@ -161,11 +161,11 @@
                         </li>
                         <li>
                             <i class="fas fa-envelope mr-2"></i>
-                            contact@lebosstech.store
+                            contact@lebosstech.ci
                         </li>
                         <li>
                             <i class="fas fa-globe mr-2"></i>
-                            www.lebosstech.store
+                            www.lebosstech.ci
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt mr-2"></i>

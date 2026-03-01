@@ -32,7 +32,7 @@ class TermsController extends Controller
                     'Forme juridique : Société A Responsabilité Limitée',
                     'Siège social : Macory Anoumabo, Abidjan, Côte d\'Ivoire',
                     'Téléphone : +225 05 66 82 16 09',
-                    'Email : contact@lebosstech.store',
+                    'Email : contact@lebosstech.ci',
                     'Directeur de publication : GOH TANGUY BRUNO'
                 ]
             ],
@@ -52,7 +52,7 @@ class TermsController extends Controller
                 'title' => 'Article 4 - Commandes et Confirmation',
                 'icon' => 'fas fa-shopping-cart',
                 'content' => [
-                    'Les commandes peuvent être passées via WhatsApp au +225 05 66 82 16 09 ou par email à contact@lebosstech.store.',
+                    'Les commandes peuvent être passées via WhatsApp au +225 05 66 82 16 09 ou par email à contact@lebosstech.ci.',
                     'Toute commande doit préciser : nom et prénoms, adresse de livraison, numéro de téléphone, produits souhaités.',
                     'Une confirmation de commande sera envoyée par WhatsApp ou email avec récapitulatif et montant total.',
                     'La commande n\'est définitive qu\'après confirmation écrite de LEBOSS TECH MARKET.'
@@ -115,7 +115,7 @@ class TermsController extends Controller
                     'Les données collectées (nom, téléphone, adresse) servent uniquement au traitement des commandes.',
                     'Aucune donnée n\'est transmise à des tiers sans consentement explicite du client.',
                     'Le client dispose d\'un droit d\'accès, de rectification et de suppression de ses données.',
-                    'Pour exercer ces droits : contact@lebosstech.store'
+                    'Pour exercer ces droits : contact@lebosstech.ci'
                 ]
             ],
             [
@@ -135,7 +135,7 @@ class TermsController extends Controller
                 'icon' => 'fas fa-gavel',
                 'content' => [
                     'En cas de litige, une solution amiable sera recherchée en priorité.',
-                    'Le client peut nous contacter par WhatsApp (+225 05 66 82 16 09) ou email (contact@lebosstech.store).',
+                    'Le client peut nous contacter par WhatsApp (+225 05 66 82 16 09) ou email (contact@lebosstech.ci).',
                     'À défaut d\'accord amiable, les tribunaux d\'Abidjan seront seuls compétents.',
                     'Le droit ivoirien s\'applique aux présentes conditions de vente.',
                     'Médiation possible via les associations de consommateurs ivoiriennes.'
@@ -146,7 +146,7 @@ class TermsController extends Controller
                 'title' => 'Article 12 - Mentions Légales',
                 'icon' => 'fas fa-info-circle',
                 'content' => [
-                    'Site web : www.lebosstech.store',
+                    'Site web : www.lebosstech.ci',
                     'Hébergement : [À préciser selon hébergeur choisi]',
                     'Conformité : Respect de la réglementation ivoirienne sur le e-commerce',
                     'TVA : Non assujetti (régime micro-entreprise)',

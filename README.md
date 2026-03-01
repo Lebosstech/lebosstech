@@ -84,7 +84,7 @@ L'application sera accessible sur `http://localhost:8000`
 
 ## 👤 Compte Administrateur
 
-- **Email** : admin@lebosstech.store
+- **Email** : admin@lebosstech.ci
 - **Mot de passe** : password
 
 Accès admin : `http://localhost:8000/login`
@@ -92,10 +92,10 @@ Accès admin : `http://localhost:8000/login`
 ## 📞 Informations de Contact
 
 - **Entreprise** : LEBOSS TECH MARKET
-- **Email** : contact@lebosstech.store
+- **Email** : contact@lebosstech.ci
 - **Téléphone** : +225 05 66 82 16 09
 - **WhatsApp** : +225 0566821609
-- **Site** : www.lebosstech.store
+- **Site** : www.lebosstech.ci
 - **Adresse** : Macory Anoumabo, Abidjan
 
 ## 🎨 Structure du Projet
@@ -174,9 +174,9 @@ routes/
 ### Variables d'Environnement Important
 ```env
 APP_NAME="LEBOSS TECH MARKET"
-APP_URL=https://www.lebosstech.store
+APP_URL=https://www.lebosstech.ci
 DB_CONNECTION=mysql
-MAIL_FROM_ADDRESS=contact@lebosstech.store
+MAIL_FROM_ADDRESS=contact@lebosstech.ci
 ```
 
 ## 🤝 Fonctionnalités Bonus

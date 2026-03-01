@@ -18,8 +18,8 @@ class ContactController extends Controller
             'tagline' => 'Votre partenaire informatique de confiance',
             'address' => 'Macory Anoumabo, Abidjan, Côte d\'Ivoire',
             'phone' => '+225 05 66 82 16 09',
-            'email' => 'contact@lebosstech.store',
-            'website' => 'www.lebosstech.store',
+            'email' => 'contact@lebosstech.ci',
+            'website' => 'www.lebosstech.ci',
             'whatsapp' => '2250566821609'
         ];
 
@@ -52,8 +52,8 @@ class ContactController extends Controller
                 'icon' => 'fas fa-envelope',
                 'title' => 'Email',
                 'description' => 'Réponse sous 24h',
-                'value' => 'contact@lebosstech.store',
-                'link' => 'mailto:contact@lebosstech.store',
+                'value' => 'contact@lebosstech.ci',
+                'link' => 'mailto:contact@lebosstech.ci',
                 'color' => 'orange'
             ],
             [
