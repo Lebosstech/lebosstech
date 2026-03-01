@@ -28,7 +28,7 @@
                 <div class="flex items-center">
                     <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center">
                         <img class="h-12 w-auto" src="/images/logo.jpg" alt="LEBOSS TECH MARKET" onerror="this.style.display='none'">
-                        <span class="ml-3 text-2xl font-bold text-leboss-500">LEBOSS TECH</span>
+                        <span class="ml-3 text-2xl font-bold text-leboss-500"></span>
                     </a>
                 </div>
 
