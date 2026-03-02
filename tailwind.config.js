@@ -12,35 +12,35 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                // LEBOSS TECH Brand Colors
                 'leboss': {
                     50: '#FFF4ED',
                     100: '#FFE6D5',
                     200: '#FFCAA8',
                     300: '#FFA370',
                     400: '#FF7A36',
-                    500: '#E57125', // Primary Orange
+                    500: '#E57125',
                     600: '#D55A0E',
                     700: '#B4470A',
                     800: '#94380C',
                     900: '#7A2E0C',
                 },
-                'leboss-dark': {
-                    50: '#F6F6F6',
-                    100: '#E7E7E7',
-                    200: '#D1D1D1',
-                    300: '#B0B0B0',
-                    400: '#888888',
-                    500: '#6D6D6D',
-                    600: '#5D5D5D',
-                    700: '#4F4F4F',
-                    800: '#454545',
-                    900: '#2C2C2C', // Primary Dark
+                'navy': {
+                    50: '#f0f4f8',
+                    100: '#d9e2ec',
+                    200: '#bcccdc',
+                    300: '#9fb3c8',
+                    400: '#829ab1',
+                    500: '#627d98',
+                    600: '#486581',
+                    700: '#334e68',
+                    800: '#243b53',
+                    900: '#102a43',
+                    950: '#0a1929',
                 },
-            }
+            },
         },
     },
 

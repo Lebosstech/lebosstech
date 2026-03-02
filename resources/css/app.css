@@ -5,8 +5,30 @@
 /* Styles personnalisés pour LEBOSS TECH */
 :root {
     --leboss-primary: #E57125;
-    --leboss-secondary: #1a202c;
+    --leboss-secondary: #102a43;
     --leboss-accent: #667eea;
+}
+
+/* Navbar height */
+.h-18 { height: 4.5rem; }
+
+/* Scroll Reveal */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Gradient text */
+.text-gradient {
+    background: linear-gradient(135deg, var(--leboss-primary), #FF7A36);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .text-leboss-500 {
